@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.jld.mapper.playerMapper">
+<!-- 开启mybatis的二级缓存 -->
+<cache></cache>
+
+	<!-- 可以指定方法参数对象的bean，使用主键自增，#{}取到bean中同名参数，${}方法不安全，SQL注入问题 -->
+	<insert id="addplayer" parameterType="cn.jld.po.player" useGeneratedKeys="true" keyProperty="id">
+		insert into player(nickname,password) values (#{nickname},#{password})
+	</insert>
+	
+	<select id="getplayerById" resultType="cn.jld.po.player">
+		select * from player 
+		<where>
+			id = #{id}
+		</where>
+	</select>
+	
+	<select id="getplayerByName" resultType="cn.jld.po.player">
+		select * from player 
+		<where>
+			nickname = #{nickname}
+		</where>
+	</select>
+</mapper>

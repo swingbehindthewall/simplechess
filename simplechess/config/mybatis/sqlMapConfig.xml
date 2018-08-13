@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 全局setting的配置 -->
+	<!-- <settings>
+		开启二级缓存，即Mapper同命名空间级别缓存 ......开启后发现需要实现po类序列化，且有弊端先关了，以后研究。
+		<setting name="cacheEnabled" value="true"/>
+	</settings> -->
+	
+	<!-- 别名配置 -->
+	<typeAliases>
+		<!-- 批量扫描别名 -->
+		<package name="cn.jld.po"/>
+	</typeAliases>
+	
+	<!-- mapper不配置了，用整合包中的扫描 
+	mapper.xml与Mapper.java要同名且在同一个目录下
+	-->
+	
+</configuration>
